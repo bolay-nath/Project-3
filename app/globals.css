@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --header-height: 3.5rem;
+    --first-color: hsl(268, 77%, 58%);
+    --first-color-dark: hsl(268, 78, 51%);
+    --first-color-light: hsl(268, 100%, 83%);
+    --title-color: hsl(247, 27%, 31%);
+    --text-color: hsl(0, 0%, 41%);
+    --body-color: hsl(0, 0%, 100%);
+    --container-color: hsl(266, 78%, 98%);
+    --border-color: hsl(0, 0%, 87%);
+    --white: #111;
+    --body-font: "Jost", serif;
+  }
+
+  body.dark {
+    --title-color: hsl(0, 0%, 87%);
+    --text-color: hsl(0, 0%, 69%);
+    --body-color: hsl(200, 12%, 5%);
+    --container-color: hsl(200, 10%, 8%);
+    --border-color: hsl(0, 0%, 20%);
+    --white: #fff;
+  }
+
+  body {
+    @apply font-serif text-base bg-[--body-color] text-[--text-color];
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-[--title-color] font-semibold;
+  }
+
+  html {
+    @apply scroll-smooth;
   }
 }
 
+@layer components {
+  .btn {
+    @apply inline-block bg-[--first-color] border border-[--first-color] text-[--white] px-10 py-2 text-lg rounded-lg transition-all duration-500 hover:bg-[--first-color-dark];
+  }
+
+  .btn--transparent {
+    @apply bg-transparent text-[--first-color] hover:bg-[--first-color] hover:text-[--white];
+  }
+
+  .section {
+    @apply py-24 md:py-16 sm:py-8;
+  }
+
+  .section__title {
+    @apply text-4xl md:text-3xl sm:text-2xl font-normal leading-snug mb-6 sm:mb-4;
+  }
+
+  .section__title::before {
+    content: attr(data-title);
+    @apply block text-[--first-color] text-sm font-semibold uppercase tracking-widest mb-2;
+  }
+
+  .title-center {
+    @apply text-center mb-12 sm:mb-8;
+  }
+}
+
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+button,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--body-font);
+  font-size: var(--larger-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+input,
+textarea,
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--weight-600);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .container {
+    @apply max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-full mx-auto px-4 sm:px-3;
+  }
+
+  .grid {
+    @apply grid gap-6;
+  }
+
+  input,
+  textarea,
+  button {
+    @apply outline-none border-none bg-transparent;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  .active-link {
+    @apply text-[--first-color];
+  }
 }

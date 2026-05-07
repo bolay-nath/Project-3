@@ -1,0 +1,117 @@
+.testimonials {
+  background-color: var(--container-color);
+}
+.testimonial__container {
+  grid-template-columns: repeat(2, 1fr);
+}
+.testimonials__description {
+  margin-bottom: 1.75rem;
+}
+
+.testimonials__description::before {
+  content: "";
+  font-family: fontawesome;
+  display: block;
+  color: var(--first-color);
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.25rem;
+}
+/* .testimonials__description::after{
+    content: '';
+    font-family: fontawesome;
+    display: block;
+    color: var(--first-color);
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.25rem;
+} */
+.testimonial__data {
+  display: flex;
+  align-items: center;
+  columns: 1.25rem;
+}
+.testimonials__img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.testimonials__name {
+  font-size: var(--larger-font-size);
+}
+.testimonials__identity {
+  font-size: var(--larger-font-size);
+}
+@media screen and (max-width: 992px) {
+  .testimonial__container {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .testimonials__description {
+    margin-bottom: 1.5rem;
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonials__img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .testimonials__name {
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonials__identity {
+    font-size: var(--larger-font-size);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .testimonials__description {
+    margin-bottom: 1.25rem;
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonials__img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .testimonials__name {
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonials__identity {
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonial__data {
+    columns: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .testimonials__description {
+    margin-bottom: 1rem;
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonials__img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .testimonials__name {
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonials__identity {
+    font-size: var(--larger-font-size);
+  }
+
+  .testimonial__data {
+    columns: 0.75rem;
+  }
+}
