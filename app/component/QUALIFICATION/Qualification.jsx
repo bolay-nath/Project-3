@@ -1,164 +1,237 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { FaGraduationCap, FaBriefcase, FaLaptopCode } from "react-icons/fa";
+
 const Qualification = () => {
-    const qualifications = [
+  const [activeTab, setActiveTab] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const qualifications = [
+    {
+      heading: "Education",
+      icon: FaGraduationCap,
+      items: [
         {
-            heading: "Education",
-            items: [
-                { subtitle: "Autodidact", icon: "+", title: "Website Development", date: "2022 - 2024", desc: "I learned website development through self-study, utilizing various online platforms such as YouTube, free resources, and diverse online tutorials." },
-                { subtitle: "National University", icon: "-", title: "Bachelor of Arts", date: "2022 - 2025", desc: "I am currently pursuing a Bachelor of Arts (BA) degree. Through self-learning and practical experience, I have developed strong skills in web development." },
-                { subtitle: "Autodidact", icon: "+", title: "SEO", date: "2024 - 2025", desc: "Along with my web development skills, I have also learned SEO techniques to help websites rank higher and perform better in search engines." }
-            ]
+          subtitle: "Self-Taught",
+          title: "Website Development",
+          date: "2022 - 2024",
+          desc: "Mastered modern web development through intensive self-study, YouTube tutorials, and hands-on projects.",
         },
         {
-            heading: "Experience",
-            items: [
-                { subtitle: "Autodidact", icon: "+", title: "Frontend Development", date: "2021 - 2022", desc: "I specialize in frontend development, creating responsive and user-friendly interfaces using modern web technologies." },
-                { subtitle: "Autodidact", icon: "-", title: "Backend Programming", date: "2023 - 2024", desc: "I specialize in backend development, building robust and scalable server-side applications and APIs to power dynamic websites and applications." },
-                { subtitle: "Autodidact", icon: "+", title: "Full Stack Developer", date: "2024 - Present", desc: "Working as a full stack developer, combining frontend and backend expertise to build complete web solutions." }
-            ]
+          subtitle: "National University",
+          title: "Bachelor of Arts",
+          date: "2022 - 2025",
+          desc: "Currently pursuing a Bachelor of Arts degree while continuously enhancing web development skills.",
+        },
+        {
+          subtitle: "Self-Taught",
+          title: "SEO Mastery",
+          date: "2024 - 2025",
+          desc: "Advanced SEO techniques to optimize website performance, ranking, and search visibility.",
+        },
+        {
+          subtitle: "Self-Taught",
+          title: "UI/UX Design",
+          date: "2023 - 2024",
+          desc: "Learned modern UI/UX principles to create intuitive and visually appealing user interfaces.",
+        },
+      ],
+    },
+
+    {
+      heading: "Experience",
+      icon: FaBriefcase,
+      items: [
+        {
+          subtitle: "Self-Taught",
+          title: "Frontend Development",
+          date: "2021 - 2022",
+          desc: "Crafted responsive, pixel-perfect interfaces using modern frontend technologies.",
+        },
+        {
+          subtitle: "Self-Taught",
+          title: "Backend Development",
+          date: "2023 - 2024",
+          desc: "Built scalable backend systems, RESTful APIs, and robust database solutions.",
+        },
+        {
+          subtitle: "Self-Taught",
+          title: "Full Stack Development",
+          date: "2024 - Present",
+          desc: "Full stack developer delivering complete web solutions from frontend to backend.",
+        },
+        {
+          subtitle: "Freelance",
+          title: "Client Projects",
+          date: "2024 - Present",
+          desc: "Delivered 10+ client projects with 100% satisfaction, from concept to deployment.",
+        },
+      ],
+    },
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
-    ];
-
-    return (
-        <section className='bg-[--container-color] section' id='experience'>
-            <div className="container max-w-6xl lg:max-w-4xl md:max-w-2xl mx-auto px-4">
-                <h2 className="section__title title-center" data-title="My Journey">Qualification</h2>
-                <div className="grid grid-cols-2 md:grid-cols-1 gap-8 md:gap-6">
-                    {qualifications.map((qual, idx) => (
-                        <div key={idx}>
-                            <h3 className="text-center text-2xl md:text-xl font-semibold pb-8 md:pb-6 text-[--title-color] border-b-2 border-[--border-color]">{qual.heading}</h3>
-                            <div className="space-y-6 md:space-y-4 mt-8 md:mt-6">
-                                {qual.items.map((item, i) => (
-                                    <div key={i} className="relative pb-6 md:pb-4 border-b md:border-0 last:border-0">
-                                        <div className="flex justify-between items-start pb-4 md:pb-3">
-                                            <h3 className="text-base md:text-sm font-semibold text-[--text-color]">{item.subtitle}</h3>
-                                            <span className="absolute right-0 -bottom-2 w-10 h-10 md:w-8 md:h-8 bg-[--container-color] border-2 border-[--border-color] rounded-full flex items-center justify-center text-center text-xl md:text-lg text-[--title-color] font-bold">{item.icon}</span>
-                                        </div>
-                                        <div>
-                                            <div className="flex justify-between items-start gap-4 mb-3">
-                                                <h3 className="text-lg md:text-base font-semibold text-[--title-color]">{item.title}</h3>
-                                                <span className="text-sm md:text-xs text-[--title-color] font-semibold whitespace-nowrap">{item.date}</span>
-                                            </div>
-                                            <p className="text-[--text-color] text-sm md:text-xs leading-relaxed">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+      },
+      {
+        threshold: 0.1,
+      },
     );
-};
 
-export default Qualification;
-                <div className="resume__group">
-                    <h3 className="resume__heading">Education</h3>
-                    <div className="resume__items">
-                        <div className="resume__item">
-                            <div className="resume__header">
-                                <h3 className="resume__subtitle">Autodidact</h3>
-                                <span className="resume__icon">+</span>
-                            </div>
-                            <div className="resume__content">
-                                <div className="resume__data-title">
-                                    <h3 className="resume__title">Website Development</h3>
-                                    <span className="resume__data">2022 - 2024</span>
-                                </div>
-                                <div>
-                                    <p className="resume__description">I learned website development through self-study, utilizing various online platforms such as YouTube, free resources, and diverse online tutorials. My learning journey involved exploring multiple sources, which allowed me to gain a well-rounded understanding of web development.</p>
-                                </div>
-                            </div>
-                        </div>
+    const section = document.getElementById("experience");
 
-                        <div className="resume__item">
-                            <div className="resume__header">
-                                <h3 className="resume__subtitle">National University</h3>
-                                <span className="resume__icon">-</span>
-                            </div>
-                            <div className="resume__content">
-                                <div className="resume__data-title">
-                                    <h3 className="resume__title">Bachelor of Arts</h3>
-                                    <span className="resume__data">2022 - 2025</span>
-                                </div>
-                                <div>
-                                    <p className="resume__description">I am currently pursuing a Bachelor of Arts (BA) degree. Through self-learning and practical experience, I have developed strong skills in web development.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="resume__item">
-                            <div className="resume__header">
-                                <h3 className="resume__subtitle">Autodidact</h3>
-                                <span className="resume__icon">+</span>
-                            </div>
-                            <div className="resume__content">
-                                <div className="resume__data-title">
-                                    <h3 className="resume__title">SEO</h3>
-                                    <span className="resume__data">2024 - 2025</span>
-                                </div>
-                                <div>
-                                    <p className="resume__description">Along with my web development skills, I have also learned SEO techniques to help websites rank higher and perform better in search engines.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section id="experience" className="py-24 bg-[var(--container-color)]">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Title */}
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
+          <h2
+            className="text-4xl md:text-3xl font-bold text-[var(--title-color)]"
+            data-title="Qualification"
+          >
+            My Professional Journey
+          </h2>
+
+          <p className="text-[var(--text-color)] mt-4 max-w-2xl mx-auto">
+            Education and experience that shaped my development journey.
+          </p>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+          {qualifications.map((qual, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveTab(index)}
+              className={`relative px-8 py-4 rounded-2xl font-semibold transition-all duration-500 flex items-center justify-center gap-3 border
+              
+              ${
+                activeTab === index
+                  ? "bg-[var(--first-color)] text-white border-[var(--first-color)] shadow-lg shadow-[var(--first-color)]/30 scale-105"
+                  : "bg-[var(--container-color)]/80 text-[var(--text-color)] border-[var(--border-color)] hover:border-[var(--first-color)] hover:text-[var(--first-color)]"
+              }`}
+            >
+              <qual.icon className="text-lg" />
+              <span>{qual.heading}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {qualifications[activeTab].items.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                transitionDelay: `${index * 150}ms`,
+              }}
+              className={`group relative overflow-hidden rounded-3xl p-8
+              border border-[var(--border-color)]/50
+              bg-[var(--container-color)]/80
+              backdrop-blur-xl
+              shadow-lg
+              hover:border-[var(--first-color)]/60
+              hover:shadow-2xl
+              hover:shadow-[var(--first-color)]/20
+              hover:-translate-y-3
+              transition-all duration-700
+
+              ${
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
+              }`}
+            >
+              {/* Glow */}
+              <div
+                className="absolute inset-0 rounded-3xl
+                bg-gradient-to-r
+                from-[var(--first-color)]/10
+                to-transparent
+                opacity-0 group-hover:opacity-100
+                transition-opacity duration-700 -z-10"
+              />
+
+              {/* Header */}
+              <div className="flex items-start justify-between gap-4 mb-6 pb-6 border-b border-[var(--border-color)]/30">
+                <div className="flex items-center gap-4">
+                  {/* Icon */}
+                  <div
+                    className="w-14 h-14 rounded-2xl
+                    bg-[var(--first-color)]/10
+                    border border-[var(--first-color)]/20
+                    flex items-center justify-center
+                    group-hover:scale-110
+                    transition-transform duration-500"
+                  >
+                    <FaLaptopCode className="text-2xl text-[var(--first-color)]" />
+                  </div>
+
+                  {/* Subtitle */}
+                  <div>
+                    <h4
+                      className="text-sm uppercase tracking-wider
+                      font-semibold text-[var(--first-color)]"
+                    >
+                      {item.subtitle}
+                    </h4>
+                  </div>
                 </div>
-                {/* experience section */}
-                <div className="resume__group">
-                    <h3 className="resume__heading">Experience</h3>
-                    <div className="resume__items">
-                        <div className="resume__item">
-                            <div className="resume__header">
-                                <h3 className="resume__subtitle">Autodidact</h3>
-                                <span className="resume__icon">+</span>
-                            </div>
-                            <div className="resume__content">
-                                <div className="resume__data-title">
-                                    <h3 className="resume__title">Frontend Development</h3>
-                                    <span className="resume__data">2021 - 2022</span>
-                                </div>
-                                <div>
-                                    <p className="resume__description">I specialize in frontend development, creating responsive and user-friendly interfaces using modern web technologies.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div className="resume__item">
-                            <div className="resume__header">
-                                <h3 className="resume__subtitle">Autodidact</h3>
-                                <span className="resume__icon">-</span>
-                            </div>
-                            <div className="resume__content">
-                                <div className="resume__data-title">
-                                    <h3 className="resume__title">Backend Programming</h3>
-                                    <span className="resume__data">2023 - 2024</span>
+                {/* Date */}
+                <span
+                  className="text-xs md:text-sm
+                  px-4 py-2 rounded-xl
+                  bg-[var(--first-color)]/10
+                  text-[var(--first-color)]
+                  border border-[var(--first-color)]/20
+                  whitespace-nowrap"
+                >
+                  {item.date}
+                </span>
+              </div>
 
-                                </div>
-                                <div>
-                                    <p className="resume__description">I specialize in backend development, building robust and scalable server-side applications and APIs to power dynamic websites and applications.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="resume__item">
-                            <div className="resume__header">
-                                <h3 className="resume__subtitle">Autodidact</h3>
-                                <span className="resume__icon">+</span>
-                            </div>
-                            <div className="resume__content">
-                                <div className="resume__data-title">
-                                    <h3 className="resume__title">SEO</h3>
-                                    <span className="resume__data">2024 - 2025</span>
-                                </div>
-                                <div>
-                                    <p className="resume__description">I am a full-stack web developer with expertise in frontend, backend, and SEO. I specialize in creating responsive, user-friendly websites optimized for search engines and performance.s</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              {/* Content */}
+              <div>
+                <h3
+                  className="text-2xl md:text-xl
+                  font-bold text-[var(--title-color)]
+                  mb-4 leading-tight
+                  group-hover:text-[var(--first-color)]
+                  transition-colors duration-500"
+                >
+                  {item.title}
+                </h3>
+
+                <p
+                  className="text-[var(--text-color)]
+                  leading-relaxed text-base md:text-sm"
+                >
+                  {item.desc}
+                </p>
+              </div>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Qualification;

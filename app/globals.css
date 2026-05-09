@@ -3,8 +3,10 @@
 @layer base {
   :root {
     --header-height: 3.5rem;
+
+    /* Colors */
     --first-color: hsl(268, 77%, 58%);
-    --first-color-dark: hsl(268, 78, 51%);
+    --first-color-dark: hsl(268, 78%, 51%);
     --first-color-light: hsl(268, 100%, 83%);
     --title-color: hsl(247, 27%, 31%);
     --text-color: hsl(0, 0%, 41%);
@@ -12,6 +14,8 @@
     --container-color: hsl(266, 78%, 98%);
     --border-color: hsl(0, 0%, 87%);
     --white: #111;
+
+    /* Typography */
     --body-font: "Jost", serif;
   }
 
@@ -24,106 +28,25 @@
     --white: #fff;
   }
 
-  body {
-    @apply font-serif text-base bg-[--body-color] text-[--text-color];
-  }
-
-  h1,
-  h2,
-  h3 {
-    @apply text-[--title-color] font-semibold;
+  * {
+    @apply m-0 p-0 box-border;
   }
 
   html {
     @apply scroll-smooth;
   }
-}
 
-@layer components {
-  .btn {
-    @apply inline-block bg-[--first-color] border border-[--first-color] text-[--white] px-10 py-2 text-lg rounded-lg transition-all duration-500 hover:bg-[--first-color-dark];
+  body {
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+    color: var(--text-color);
   }
 
-  .btn--transparent {
-    @apply bg-transparent text-[--first-color] hover:bg-[--first-color] hover:text-[--white];
-  }
-
-  .section {
-    @apply py-24 md:py-16 sm:py-8;
-  }
-
-  .section__title {
-    @apply text-4xl md:text-3xl sm:text-2xl font-normal leading-snug mb-6 sm:mb-4;
-  }
-
-  .section__title::before {
-    content: attr(data-title);
-    @apply block text-[--first-color] text-sm font-semibold uppercase tracking-widest mb-2;
-  }
-
-  .title-center {
-    @apply text-center mb-12 sm:mb-8;
-  }
-}
-
-/* Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-input,
-textarea,
-button,
-body {
-  font-family: var(--body-font);
-  font-size: var(--larger-font-size);
-}
-
-body {
-  background-color: var(--body-color);
-  color: var(--text-color);
-}
-
-input,
-textarea,
-button {
-  outline: none;
-  border: none;
-  background-color: transparent;
-}
-
-h1,
-h2,
-h3 {
-  color: var(--title-color);
-  font-weight: var(--weight-600);
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@layer utilities {
-  .container {
-    @apply max-w-6xl lg:max-w-4xl md:max-w-2xl sm:max-w-full mx-auto px-4 sm:px-3;
-  }
-
-  .grid {
-    @apply grid gap-6;
+  h1,
+  h2,
+  h3 {
+    color: var(--title-color);
+    @apply font-semibold;
   }
 
   input,
@@ -143,8 +66,139 @@ html {
   img {
     @apply max-w-full;
   }
+}
+
+@layer components {
+  .container {
+    @apply max-w-6xl mx-auto px-4;
+  }
+
+  .grid {
+    @apply grid gap-6;
+  }
+
+  .section {
+    @apply py-24 md:py-16 sm:py-10;
+  }
+
+  .section__title {
+    @apply text-4xl md:text-3xl sm:text-2xl
+           font-normal leading-snug mb-6;
+  }
+
+  .section__title::before {
+    content: attr(data-title);
+
+    @apply block
+           text-[--first-color]
+           text-sm
+           font-semibold
+           uppercase
+           tracking-widest
+           mb-2;
+  }
+
+  .title-center {
+    @apply text-center mb-12;
+  }
+
+  .btn {
+    @apply inline-block
+           px-10
+           py-3
+           rounded-lg
+           border
+           transition-all
+           duration-500
+           text-lg;
+
+    background-color: var(--first-color);
+    border-color: var(--first-color);
+    color: var(--white);
+  }
+
+  .btn:hover {
+    background-color: var(--first-color-dark);
+  }
+
+  .btn--transparent {
+    @apply bg-transparent;
+    color: var(--first-color);
+  }
+
+  .btn--transparent:hover {
+    background-color: var(--first-color);
+    color: var(--white);
+  }
 
   .active-link {
-    @apply text-[--first-color];
+    color: var(--first-color);
   }
+}
+/* use for home page */
+.home__img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.home__img-wrapper::before,
+.home__img-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.home__img-wrapper::before {
+  background-color: var(--first-color-light);
+  animation: blobBefore 8s ease-in-out infinite;
+}
+
+.home__img-wrapper::after {
+  background-color: var(--first-color);
+  animation: blobAfter 8s ease-in-out infinite;
+}
+
+.home__img {
+  animation: blobAfter 8s ease-in-out infinite;
+}
+
+@keyframes blobBefore {
+  0% {
+    border-radius: 65% 35% 29% 71% / 55% 30% 70% 45%;
+  }
+
+  50% {
+    border-radius: 21% 79% 50% 50% / 21% 50% 50% 79%;
+  }
+
+  100% {
+    border-radius: 65% 35% 29% 71% / 55% 30% 70% 45%;
+  }
+}
+
+@keyframes blobAfter {
+  0% {
+    border-radius: 21% 79% 50% 50% / 21% 50% 50% 79%;
+  }
+
+  50% {
+    border-radius: 65% 35% 29% 71% / 55% 30% 70% 45%;
+  }
+
+  100% {
+    border-radius: 21% 79% 50% 50% / 21% 50% 50% 79%;
+  }
+}
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
 }
