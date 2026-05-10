@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,30 +25,33 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setIsLoading(true);
     setStatus("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
         },
-        body: JSON.stringify(formData),
-      });
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+      );
 
-      if (response.ok) {
-        setStatus("success");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        setStatus("error");
-      }
+      setStatus("success");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
     } catch (error) {
+      console.error(error);
       setStatus("error");
     } finally {
       setIsLoading(false);
@@ -74,7 +78,7 @@ const Contact = () => {
       href: "https://maps.google.com/?q=Sitakunda,+Chattogram,+Bangladesh",
     },
   ];
-
+  console.log(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID);
   return (
     <section
       id="contact"
@@ -283,7 +287,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.98 }}
                 className="w-full sm:w-auto px-10 py-4 rounded-2xl
                 bg-[var(--first-color)]
-                hover:bg-[var(--first-color-alt)]
+                hover:bg-[var(--first-color)]/90
                 text-white font-bold text-lg
                 transition-all duration-300
                 shadow-lg hover:shadow-2xl

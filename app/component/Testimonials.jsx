@@ -8,25 +8,25 @@ const Testimonials = () => {
   const testimonials = [
     {
       text: "This was such an amazing experience. He had my site up and running in no time and was exceptionally responsive throughout the process.",
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744675/testimonial-1_rjrjse.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744675/testimonial-1_rjrjse.jpg",
       name: "John Wilson",
       identity: "New York, USA",
     },
     {
       text: "Fantastic job! The freelancer delivered high-quality work and paid great attention to detail. I'm very satisfied with the final result.",
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744682/testimonial-2_urfmza.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744682/testimonial-2_urfmza.jpg",
       name: "Samlinton",
       identity: "New York, USA",
     },
     {
       text: "Outstanding work! The design exceeded my expectations and the communication was excellent throughout the entire project.",
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744675/testimonial-1_rjrjse.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744675/testimonial-1_rjrjse.jpg",
       name: "Sarah Johnson",
       identity: "London, UK",
     },
     {
       text: "Professional, timely, and creative. My website now perfectly represents my brand. Highly recommended!",
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744682/testimonial-2_urfmza.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744682/testimonial-2_urfmza.jpg",
       name: "Mike Chen",
       identity: "San Francisco, USA",
     },

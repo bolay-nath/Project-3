@@ -13,10 +13,10 @@
     --body-color: hsl(0, 0%, 100%);
     --container-color: hsl(266, 78%, 98%);
     --border-color: hsl(0, 0%, 87%);
-    --white: #111;
+    --white: #fff;
 
     /* Typography */
-    --body-font: "Jost", serif;
+    --body-font: "Jost", sans-serif;
   }
 
   body.dark {
@@ -25,7 +25,6 @@
     --body-color: hsl(200, 12%, 5%);
     --container-color: hsl(200, 10%, 8%);
     --border-color: hsl(0, 0%, 20%);
-    --white: #fff;
   }
 
   * {
@@ -33,18 +32,20 @@
   }
 
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth overflow-x-hidden;
   }
 
   body {
     font-family: var(--body-font);
     background-color: var(--body-color);
     color: var(--text-color);
+    overflow-x: hidden;
   }
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     color: var(--title-color);
     @apply font-semibold;
   }
@@ -64,13 +65,13 @@
   }
 
   img {
-    @apply max-w-full;
+    @apply max-w-full block;
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-6xl mx-auto px-4;
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .grid {
@@ -78,12 +79,17 @@
   }
 
   .section {
-    @apply py-24 md:py-16 sm:py-10;
+    @apply py-24 lg:py-20 md:py-16 sm:py-12;
   }
 
   .section__title {
-    @apply text-4xl md:text-3xl sm:text-2xl
-           font-normal leading-snug mb-6;
+    @apply text-5xl
+           lg:text-4xl
+           md:text-3xl
+           sm:text-2xl
+           font-bold
+           leading-tight
+           mb-6;
   }
 
   .section__title::before {
@@ -91,30 +97,37 @@
 
     @apply block
            text-[--first-color]
-           text-sm
+           text-xs
+           sm:text-sm
            font-semibold
            uppercase
-           tracking-widest
-           mb-2;
+           tracking-[0.2em]
+           mb-3;
   }
 
   .title-center {
-    @apply text-center mb-12;
+    @apply text-center mb-14 md:mb-10 sm:mb-8;
   }
 
   .btn {
-    @apply inline-block
-           px-10
+    @apply inline-flex
+           items-center
+           justify-center
+           px-8
+           sm:px-6
            py-3
-           rounded-lg
+           rounded-xl
            border
+           text-base
+           sm:text-sm
+           font-semibold
            transition-all
-           duration-500
-           text-lg;
+           duration-300
+           cursor-pointer;
 
     background-color: var(--first-color);
     border-color: var(--first-color);
-    color: var(--white);
+    color: white;
   }
 
   .btn:hover {
@@ -122,24 +135,32 @@
   }
 
   .btn--transparent {
-    @apply bg-transparent;
+    background-color: transparent;
     color: var(--first-color);
   }
 
   .btn--transparent:hover {
     background-color: var(--first-color);
-    color: var(--white);
+    color: white;
   }
 
   .active-link {
     color: var(--first-color);
   }
 }
-/* use for home page */
+
+/* ================= HOME IMAGE ================= */
+
 .home__img-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 420px;
+
+  margin-inline: auto;
 }
 
 .home__img-wrapper::before,
@@ -147,6 +168,7 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
 .home__img-wrapper::before {
@@ -156,12 +178,22 @@
 
 .home__img-wrapper::after {
   background-color: var(--first-color);
+  opacity: 0.15;
   animation: blobAfter 8s ease-in-out infinite;
 }
 
 .home__img {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
   animation: blobAfter 8s ease-in-out infinite;
 }
+
+/* ================= ANIMATIONS ================= */
 
 @keyframes blobBefore {
   0% {
@@ -190,10 +222,12 @@
     border-radius: 21% 79% 50% 50% / 21% 50% 50% 79%;
   }
 }
+
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -201,4 +235,40 @@
 
 .animate-spin-slow {
   animation: spin-slow 20s linear infinite;
+}
+
+/* ================= RESPONSIVE FIXES ================= */
+
+@media screen and (max-width: 1024px) {
+  .section {
+    @apply py-20;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    @apply py-16;
+  }
+
+  .container {
+    @apply px-5;
+  }
+
+  .btn {
+    @apply w-full;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section__title {
+    @apply text-2xl;
+  }
+
+  .container {
+    @apply px-4;
+  }
+
+  .btn {
+    @apply text-sm py-3 px-5;
+  }
 }

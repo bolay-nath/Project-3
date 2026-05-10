@@ -9,37 +9,6 @@ const Qualification = () => {
 
   const qualifications = [
     {
-      heading: "Education",
-      icon: FaGraduationCap,
-      items: [
-        {
-          subtitle: "Self-Taught",
-          title: "Website Development",
-          date: "2022 - 2024",
-          desc: "Mastered modern web development through intensive self-study, YouTube tutorials, and hands-on projects.",
-        },
-        {
-          subtitle: "National University",
-          title: "Bachelor of Arts",
-          date: "2022 - 2025",
-          desc: "Currently pursuing a Bachelor of Arts degree while continuously enhancing web development skills.",
-        },
-        {
-          subtitle: "Self-Taught",
-          title: "SEO Mastery",
-          date: "2024 - 2025",
-          desc: "Advanced SEO techniques to optimize website performance, ranking, and search visibility.",
-        },
-        {
-          subtitle: "Self-Taught",
-          title: "UI/UX Design",
-          date: "2023 - 2024",
-          desc: "Learned modern UI/UX principles to create intuitive and visually appealing user interfaces.",
-        },
-      ],
-    },
-
-    {
       heading: "Experience",
       icon: FaBriefcase,
       items: [
@@ -66,6 +35,36 @@ const Qualification = () => {
           title: "Client Projects",
           date: "2024 - Present",
           desc: "Delivered 10+ client projects with 100% satisfaction, from concept to deployment.",
+        },
+      ],
+    },
+    {
+      heading: "Education",
+      icon: FaGraduationCap,
+      items: [
+        {
+          subtitle: "Self-Taught",
+          title: "Website Development",
+          date: "2022 - 2024",
+          desc: "Mastered modern web development through intensive self-study, YouTube tutorials, and hands-on projects.",
+        },
+        {
+          subtitle: "National University",
+          title: "Bachelor of Arts",
+          date: "2022 - 2025",
+          desc: "Currently pursuing a Bachelor of Arts degree while continuously enhancing web development skills.",
+        },
+        {
+          subtitle: "Self-Taught",
+          title: "SEO Mastery",
+          date: "2024 - 2025",
+          desc: "Advanced SEO techniques to optimize website performance, ranking, and search visibility.",
+        },
+        {
+          subtitle: "Self-Taught",
+          title: "UI/UX Design",
+          date: "2023 - 2024",
+          desc: "Learned modern UI/UX principles to create intuitive and visually appealing user interfaces.",
         },
       ],
     },
@@ -119,7 +118,7 @@ const Qualification = () => {
             <button
               key={index}
               onClick={() => setActiveTab(index)}
-              className={`relative px-8 py-4 rounded-2xl font-semibold transition-all duration-500 flex items-center justify-center gap-3 border
+              className={`relative px-8 py-4 rounded-2xl font-semibold transition-all duration-500 flex items-center justify-center gap-3 border cursor-pointer
               
               ${
                 activeTab === index

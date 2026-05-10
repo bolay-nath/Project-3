@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaArrowDown } from "react-icons/fa";
+import { whatsappUrl } from "./AllData";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const homePhoto =
-    "https://res.cloudinary.com/dbijpygjz/image/upload/v1758722676/samples/coffee.png";
+    "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758722676/samples/coffee.png";
 
   useEffect(() => {
     setIsVisible(true);
@@ -44,11 +45,11 @@ const Home = () => {
           {/* Description */}
           <p className="text-lg leading-relaxed mb-10 max-w-md text-[var(--text-color)] opacity-90">
             Hi there! I'm a passionate web developer with years of experience in
-            crafting
+            crafting{" "}
             <span className="font-semibold text-[var(--title-color)]">
               dynamic
             </span>{" "}
-            and
+            and{" "}
             <span className="font-semibold text-[var(--title-color)]">
               user-friendly
             </span>{" "}
@@ -59,7 +60,9 @@ const Home = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 max-w-md">
             <Link
-              href="#contact"
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn group relative overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[var(--first-color)]/30 transform hover:-translate-y-1 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -74,7 +77,6 @@ const Home = () => {
               className="btn btn--transparent group shadow-lg hover:shadow-xl hover:shadow-[var(--first-color)]/20 transform hover:-translate-y-1 transition-all duration-500"
             >
               <span className="relative z-10">View Portfolio</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-[var(--first-color)] to-[var(--first-color-dark)] scale-0 group-hover:scale-100 transition-transform duration-500 origin-center" />
             </Link>
           </div>
 

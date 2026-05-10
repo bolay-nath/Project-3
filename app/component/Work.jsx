@@ -10,37 +10,37 @@ const Work = () => {
   const projects = [
     {
       id: 1,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744635/project-img-1_gjx1bs.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744635/project-img-1_gjx1bs.jpg",
       title: "Web Design",
       desc: "Modern responsive website design with pixel-perfect layouts.",
     },
     {
       id: 2,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744640/project-img-2_fzmqc3.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744640/project-img-2_fzmqc3.jpg",
       title: "Android App",
       desc: "Native mobile application with smooth animations & performance.",
     },
     {
       id: 3,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744647/project-img-3_dgnqyy.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744647/project-img-3_dgnqyy.jpg",
       title: "Photoshop Design",
       desc: "Creative graphic design & complete branding solutions.",
     },
     {
       id: 4,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744654/project-img-4_qkpt3j.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744654/project-img-4_qkpt3j.jpg",
       title: "UI/UX Design",
       desc: "User-centered interface design with intuitive interactions.",
     },
     {
       id: 5,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744661/project-img-5_k5dmow.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744661/project-img-5_k5dmow.jpg",
       title: "Web Development",
       desc: "Full-stack development with modern frameworks & APIs.",
     },
     {
       id: 6,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/v1758744668/project-img-6_lrsn3a.jpg",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744668/project-img-6_lrsn3a.jpg",
       title: "Portfolio Website",
       desc: "Professional portfolio with advanced animations & features.",
     },

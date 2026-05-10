@@ -11,7 +11,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const aboutImage = "https://res.cloudinary.com/dbijpygjz/image/upload/v1758723152/samples/chair.png";
+  const aboutImage = "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758723152/samples/chair.png";
 
   useEffect(() => {
     const observer = new IntersectionObserver(

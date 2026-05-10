@@ -3,6 +3,7 @@
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { whatsappUrl } from "./AllData";
 
 const Header = () => {
   const [navToggle, setNavToggle] = useState(false);
@@ -80,10 +81,12 @@ const Header = () => {
 
         {/* Desktop Button */}
         <Link
-          href="#contact"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden lg:inline-flex items-center justify-center px-6 py-3 rounded-2xl
           bg-[var(--first-color)]
-          hover:bg-[var(--first-color-alt)]
+          hover:bg-[var(--first-color-dark)]
           text-white font-semibold
           transition-all duration-300
           hover:-translate-y-1 hover:shadow-xl"
@@ -138,7 +141,8 @@ const Header = () => {
             {/* Mobile CTA */}
             <li className="pt-4">
               <Link
-                href="#contact"
+                href={whatsappUrl}
+                target="_blank"
                 onClick={() => setNavToggle(false)}
                 className="inline-flex items-center justify-center px-8 py-4 rounded-2xl
                 bg-[var(--first-color)]
