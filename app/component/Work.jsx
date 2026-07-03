@@ -10,39 +10,45 @@ const Work = () => {
   const projects = [
     {
       id: 1,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744635/project-img-1_gjx1bs.jpg",
-      title: "Web Design",
-      desc: "Modern responsive website design with pixel-perfect layouts.",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1783101020/screen-1_g1g9io.png",
+      title: "Painting Website",
+      desc: "Modern responsive website design with pixel-perfect layouts fully responsive.",
+      url: "https://sun-painting-services.vercel.app/",
     },
     {
       id: 2,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744640/project-img-2_fzmqc3.jpg",
-      title: "Android App",
-      desc: "Native mobile application with smooth animations & performance.",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1783101046/screen-1_be4y85.png",
+      title: "AI Product Website",
+      desc: "Innovative AI-powered product website with seamless user experience.",
+      url: "https://lazarev-ivory.vercel.app/",
     },
     {
       id: 3,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744647/project-img-3_dgnqyy.jpg",
-      title: "Photoshop Design",
-      desc: "Creative graphic design & complete branding solutions.",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1783101035/screen-1_y8gvlb.png",
+      title: "Chocolate Brand Website",
+      desc: "Branding and web development for a premium chocolate brand.",
+      url: "https://melt-chocolate-mu.vercel.app/",
     },
     {
       id: 4,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744654/project-img-4_qkpt3j.jpg",
-      title: "UI/UX Design",
-      desc: "User-centered interface design with intuitive interactions.",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1783101060/screen-1_ywho88.png",
+      title: "Portfolio Website",
+      desc: "Professional portfolio website showcasing creative work and achievements.",
+      url: "https://marn-portfolio-project.vercel.app/",
     },
     {
       id: 5,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744661/project-img-5_k5dmow.jpg",
-      title: "Web Development",
-      desc: "Full-stack development with modern frameworks & APIs.",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1783101078/screen-1_n6ytrm.png",
+      title: "Ice Cream Brand Website",
+      desc: "Branding and web development for a premium ice cream brand.",
+      url: "https://ice-cream-shop-beta-three.vercel.app/",
     },
     {
       id: 6,
-      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1758744668/project-img-6_lrsn3a.jpg",
-      title: "Portfolio Website",
-      desc: "Professional portfolio with advanced animations & features.",
+      img: "https://res.cloudinary.com/dbijpygjz/image/upload/f_auto,q_auto/v1783101088/screen-1_pj9sgz.png",
+      title: "Headphone Brand Website",
+      desc: "Branding and web development for a premium headphone brand.",
+      url: "https://headphone-shop-sand.vercel.app/",
     },
   ];
 
@@ -131,7 +137,10 @@ const Work = () => {
               }`}
             >
               {/* Project Image */}
-              <div className="relative h-64 sm:h-72 lg:h-80 overflow-hidden">
+              <div
+                className="relative h-64 sm:h-72 lg:h-80 overflow-hidden"
+                onClick={() => window.open(project.url, "_blank")}
+              >
                 <Image
                   src={project.img}
                   alt={`${project.title} - ${project.desc}`}
